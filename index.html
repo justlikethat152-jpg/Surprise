@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Surprise for You</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-hearts-container" id="bgHearts"></div>
+
+    <section id="block1" class="app-block active-block">
+        <div class="container">
+            <div id="page1">
+                <h1 id="text1" style="animation: fadeInMove 1s ease forwards 0.5s;">
+                    I think you’ve been<br>waiting so long, <span class="nickname">baby…</span>
+                </h1>
+                <button class="btn visible" id="btnPage1" style="animation-delay: 1.5s; opacity: 0; animation-fill-mode: forwards;">
+                    Click here to reveal the surprise
+                </button>
+            </div>
+
+            <div id="page2" class="hidden">
+                <h1 id="text2">
+                    Do you know how<br>cute you are, baby?
+                </h1>
+                
+                <button class="btn" id="btnPage2">
+                    Check your cuteness <span class="pulse-icon">💗</span>
+                </button>
+
+                <div class="meter-wrapper" id="meterWrapper">
+                    <div class="meter-bar" id="meterBar"></div>
+                    <div class="meter-text" id="meterText">0%</div>
+                </div>
+
+                <div class="final-msg" id="finalMsg">
+                    <p>You are dangerously cute, baby 💖</p>
+                    <button class="btn" onclick="showBlock('block2')">
+                        Okay... now listen 💓
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="block2" class="app-block hidden-block">
+        <div class="container b2-layout">
+            <div id="interfaceWrapper">
+                <div class="title-text">Wanna see what’s in my heart? 💗</div>
+
+                <svg class="heart-svg" id="mainHeart" viewBox="0 0 100 90">
+                    <defs>
+                        <radialGradient id="heartGrad" cx="30%" cy="30%" r="80%">
+                            <stop offset="0%" stop-color="#ff758c"/>
+                            <stop offset="100%" stop-color="#d60000"/>
+                        </radialGradient>
+                    </defs>
+                    <path d="M50,88 C50,88 12,65 4,40 C-2,20 15,0 35,10
+                             C42,14 48,22 50,26 C52,22 58,14 65,10
+                             C85,0 102,20 96,40 C88,65 50,88 50,88 Z"
+                          fill="url(#heartGrad)"
+                          stroke="rgba(255,255,255,.3)" stroke-width="2"/>
+                </svg>
+
+                <button class="btn" id="openBtn">💗 Open My Heart</button>
+            </div>
+
+            <div id="revealContainer">
+                <div class="reveal-msg">It’s you… it’s always been you 💖</div>
+                <div class="image-stack">
+                    <img src="assets/images/reveal1.jpg" class="reveal-img">
+                    <img src="assets/images/reveal2.jpg" class="reveal-img">
+                    <img src="assets/images/reveal3.jpg" class="reveal-img">
+                </div>
+                
+                <button class="btn next-flow-btn" onclick="showBlock('block3')">
+                    See what I made for you ➡
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="block3" class="app-block hidden-block">
+        <div class="app-container">
+
+            <div class="entry-caption" id="mainCaption">
+                Don’t be in a hurry to open this, baby.<br>
+                Open it one by one, in the given order 💗
+            </div>
+            
+            <div class="menu-grid" id="mainMenu">
+                <div class="menu-card" id="cardReveal" onclick="openSection(1)">👆 Tap to Reveal</div>
+                <div class="menu-card locked" id="cardMemories" onclick="openSection(2)">📸 Memories</div>
+                <div class="menu-card locked" id="cardLetter" onclick="openSection(3)">💌 A Letter</div>
+                <div class="menu-card locked" id="cardVoice" onclick="openSection(4)">🎧 Hear My Voice</div>
+                
+                <button class="final-next-btn" id="finalNextBtn" onclick="showFinalScreen()">Next 💗</button>
+            </div>
+    
+            <div class="full-section" id="section-1">
+                <div class="reveal-instruction">Tap to reveal the text behind it 💗</div>
+                <div class="reveal-grid">
+                    <div class="reveal-card" onclick="activateReveal(this)">
+                        <span class="front-text">💗 Tap me</span>
+                        <div class="card-content">
+                            <p class="reveal-line">You are so incredibly cute 🥺💗</p>
+                            <p class="reveal-line">And so effortlessly beautiful ✨</p>
+                            <p class="reveal-line">Sometimes I just smile thinking about you</p>
+                        </div>
+                    </div>
+                    <div class="reveal-card" onclick="activateReveal(this)">
+                        <span class="front-text">✨ One thing about you</span>
+                        <div class="card-content">
+                            <p class="reveal-line">You are unbelievably sweet 🍯</p>
+                            <p class="reveal-line">And insanely gorgeous 😍</p>
+                            <p class="reveal-line">I don’t know how you do that so easily</p>
+                        </div>
+                    </div>
+                    <div class="reveal-card" onclick="activateReveal(this)">
+                        <span class="front-text">🤍 Something I never said</span>
+                        <div class="card-content">
+                            <p class="reveal-line">You’re honestly too hot to handle 🔥</p>
+                            <p class="reveal-line">And yes… I mean that, baby 😌❤️</p>
+                            <p class="reveal-line">You drive me a little crazy</p>
+                        </div>
+                    </div>
+                    <div class="reveal-card" onclick="activateReveal(this)">
+                        <span class="front-text">💖 Just for you</span>
+                        <div class="card-content">
+                            <p class="reveal-line">I want to stay with you</p>
+                            <p class="reveal-line">For the rest of my life 💍</p>
+                            <p class="reveal-line">I love you sooo much, baby ❤️🥹</p>
+                        </div>
+                    </div>
+                    <div class="reveal-card" onclick="activateReveal(this)">
+                        <span class="front-text"><span class="pulse-icon">🌙</span> A quiet thought</span>
+                        <div class="card-content">
+                            <p class="reveal-line">Just knowing you exist...</p>
+                            <p class="reveal-line">Makes my world peaceful 🌙</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="action-btn next-step-btn" id="nextBtn1" onclick="finishSection(1)">Next 💗</button>
+            </div>
+    
+            <div class="full-section" id="section-2">
+                <div class="intro-text" id="memoriesIntro">Let’s go back…<br>To our memories of 2025 💫</div>
+                <div class="memory-wrapper hidden" id="memoryViewer">
+                    <img src="" class="memory-photo" id="memPhoto" alt="Memory">
+                    <div class="memory-caption" id="memCaption"></div>
+                    <div style="margin-top:20px; font-size: 0.9rem; opacity: 0.7;">(Tap photo to continue)</div>
+                </div>
+                <div class="outro-text hidden" id="memoriesOutro">Those memories…<br>will always stay with me ❤️</div>
+                <button class="action-btn next-step-btn" id="nextBtn2" onclick="finishSection(2)">Next 💗</button>
+            </div>
+    
+            <div class="full-section" id="section-3">
+                <div class="envelope-wrapper" id="envelope" onclick="openEnvelope()">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">Read Me</div>
+                    <div class="letter-paper"></div>
+                </div>
+                <div class="letter-read-view" id="letterView">
+                    <div class="letter-text-scroll" id="letterTextContainer">
+                        <p class="letter-line">My Dearest,</p>
+                        <p class="letter-line">I wanted to take a moment</p>
+                        <p class="letter-line">To tell you how much you mean to me.</p>
+                        <p class="letter-line">Every single day,</p>
+                        <p class="letter-line">You are the first thought in my mind.</p>
+                        <p class="letter-line">Distance means so little</p>
+                        <p class="letter-line">When someone means so much.</p>
+                        <p class="letter-line">I love you endlessly.</p>
+                        <p class="letter-line">Yours always, ❤️</p>
+                    </div>
+                    <button class="action-btn next-step-btn" id="nextBtn3" style="align-self:center;" onclick="finishSection(3)">Next 💗</button>
+                </div>
+            </div>
+    
+            <div class="full-section" id="section-4">
+                <div class="voice-wrapper">
+                    <h2 style="margin-bottom: 20px;">I have a message for you ❤️</h2>
+                    
+                    <audio id="audio1" src="assets/audio/voice1.mp3"></audio> 
+                    <audio id="audio2" src="assets/audio/voice2.mp3"></audio>
+            
+                    <button class="play-btn" id="mainPlayBtn" onclick="playContinuousAudio()">▶</button>
+                    <p id="audioStatus" style="margin-top:10px; opacity:0.8;">Tap to listen...</p>
+                    
+                    <div class="voice-controls" id="voiceControls" style="display:none; gap:15px; justify-content:center; margin-top:30px;">
+                        <button class="action-btn" onclick="replayFullAudio()">🔁 Replay</button>
+                        <button class="action-btn" onclick="goToFinalDirectly()">Next ➡</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="full-section" id="section-final">
+                <div class="final-screen" id="finalContent">
+                    <img src="assets/images/final.jpg" class="final-img" id="finalImg">   
+                    <div class="final-caption" id="finalCaption">For my cutiepie 💖</div>
+                    <div class="final-opts" id="finalOpts">
+                        <button class="close-btn" style="position:relative; bottom:auto;" onclick="location.reload()">🔁 Replay All</button>
+                        <button class="close-btn" style="position:relative; bottom:auto;" onclick="alert('I love you! 💖')">💖 Stay here</button>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
